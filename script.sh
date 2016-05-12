@@ -19,7 +19,8 @@ fi
 
 case "$COMMAND" in
 "run")
-		clang -o "${PROJECT}.out" "${PROJECT}.c"
+		clang -o "${PROJECT}.out" "${PROJECT}.c" -lcs50
+
 		"${PWD}/${PROJECT}.out"
 		;;
 "check")
