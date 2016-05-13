@@ -17,18 +17,26 @@ int main(void) {
 	int evenTotal = 0;
 	int oddTotal = 0;
 
+	long long tempNumber = cardNumber;
+
 	for (int i = 0; i < cardNumberLength; i++) {
 		int isEven = (i == 0) || (i % 2 == 0);
+		int value = tempNumber % 10;
+
+		printf("value: %i\n", value);
 
 		if (isEven) {
-			evenTotal += i;
+			evenTotal += value;
 		}
 
 		if (!isEven) {
-			int oddNumber = calculateOddNumber(i);
+			int oddNumber = calculateOddNumber(value); // WRONG
 
 			oddTotal += oddNumber;
 		}
+
+		tempNumber /= 10;
+		printf("------------------------------------\n");
 	}
 
 	printf("eventotal: %i \n", evenTotal); //
@@ -39,25 +47,25 @@ int main(void) {
 int calculateOddNumber(int n) {
 		int z = (n * 2);
 		int digitCount = countDigits(z);
+		printf("digitCount: %i\n", digitCount);
 
-		if (digitCount == 0) {
+		if (digitCount == 0 || digitCount == 1) { // This isn't quite right. Using the 0 digit returns, though it's 1 digit.
+			printf("addingSmall: %i\n", z);
 			return z;
 		}
-
-		// @TODO need to add these digits together.
-		printf("large number, lets iterate %i\n", z);
 
 		int sum = 0;
 		int remainder;
 
 		while (digitCount != 0) {
-			remainder = digitCount % 10; // @TODO: Always returns 2 :S.
+			remainder = z % 10;
+			printf("remainder: %i\n", remainder);
 			sum += remainder;
 
-			printf("adding %i\n", remainder);
 			digitCount /= 10;
 		}
 
+		printf("addingBig: %i\n", sum); // WRONG, only 2nd digit
 		return sum;
 }
 
