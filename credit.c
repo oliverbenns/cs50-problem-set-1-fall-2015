@@ -36,19 +36,25 @@ int main(void) {
 		tempNumber /= 10;
 	}
 
-	if ((oddTotal + evenTotal) % 10 != 0) {
-		return printf("INVALID card number\n");
+	if ((oddTotal + evenTotal) % 10) {
+		printf("INVALID\n");
+		return 0;
 	}
 
-	// if number starts with 34 or 37. AND is 15 digits
-	// 	return printf("AMEX\n");
+	if (cardNumberLength == 15) {
+		printf("AMEX\n");
+		return 0;
+	}
 
-	// if number starts with 51, 52, 53, 54, or 55 AND is 16 digits
-	// 	return printf("MASTERCARD\n");
+	if (cardNumber >= 5100000000000000 && cardNumber <= 5599999999999999) {
+		printf("MASTERCARD\n");
+		return 0;
+	}
 
-	// if number starts with 4 AND is 13 OR 16 digits
-	// 	return printf("VISA\n");
-
+	if (cardNumber >= 4000000000000000 && cardNumber <= 4999999999999999) {
+		printf("VISA\n");
+		return 0;
+	}
 }
 
 int calculateOddNumber(int n) {
