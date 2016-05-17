@@ -45,6 +45,16 @@ int main(void) {
 	if ((oddTotal + evenTotal) % 10 != 0) {
 		return printf("INVALID card number\n");
 	}
+
+	// if number starts with 34 or 37. AND is 15 digits
+	// 	return printf("AMEX\n");
+
+	// if number starts with 51, 52, 53, 54, or 55 AND is 16 digits
+	// 	return printf("MASTERCARD\n");
+
+	// if number starts with 4 AND is 13 OR 16 digits
+	// 	return printf("VISA\n");
+
 }
 
 
