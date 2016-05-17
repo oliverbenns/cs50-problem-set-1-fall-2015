@@ -6,12 +6,12 @@ int countDigits(long long n);
 
 int main(void) {
 	printf("Number: ");
-	// long long cardNumber = GetLongLong();
-	long long cardNumber = 378282246310005;
+	long long cardNumber = GetLongLong();
 	int cardNumberLength = countDigits(cardNumber);
 
 	if (cardNumberLength < 13 || cardNumberLength > 16) {
-		return printf("INVALID length: %i \n", cardNumberLength);
+		printf("INVALID\n");
+		return 0;
 	}
 
 	int evenTotal = 0;
@@ -22,8 +22,6 @@ int main(void) {
 	for (int i = 0; i < cardNumberLength; i++) {
 		int isEven = (i == 0) || (i % 2 == 0);
 		int value = tempNumber % 10;
-
-		printf("value: %i\n", value);
 
 		if (isEven) {
 			evenTotal += value;
@@ -36,11 +34,7 @@ int main(void) {
 		}
 
 		tempNumber /= 10;
-		printf("------------------------------------\n");
 	}
-
-	printf("eventotal: %i \n", evenTotal); //
-	printf("oddTotal: %i \n", oddTotal); //
 
 	if ((oddTotal + evenTotal) % 10 != 0) {
 		return printf("INVALID card number\n");
@@ -57,14 +51,11 @@ int main(void) {
 
 }
 
-
 int calculateOddNumber(int n) {
 		int z = (n * 2);
 		int digitCount = countDigits(z);
-		printf("digitCount: %i\n", digitCount);
 
-		if (digitCount == 0 || digitCount == 1) { // This isn't quite right. Using the 0 digit returns, though it's 1 digit.
-			printf("addingSmall: %i\n", z);
+		if (digitCount == 0 || digitCount == 1) {
 			return z;
 		}
 
@@ -73,13 +64,11 @@ int calculateOddNumber(int n) {
 
 		while (z != 0) {
 			remainder = z % 10;
-			printf("remainder: %i\n", remainder);
 			sum += remainder;
 
 			z /= 10;
 		}
 
-		printf("addingBig: %i\n", sum);
 		return sum;
 }
 
