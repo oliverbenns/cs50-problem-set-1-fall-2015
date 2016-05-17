@@ -30,7 +30,7 @@ int main(void) {
 		}
 
 		if (!isEven) {
-			int oddNumber = calculateOddNumber(value); // WRONG
+			int oddNumber = calculateOddNumber(value);
 
 			oddTotal += oddNumber;
 		}
@@ -57,15 +57,15 @@ int calculateOddNumber(int n) {
 		int sum = 0;
 		int remainder;
 
-		while (digitCount != 0) {
+		while (z != 0) {
 			remainder = z % 10;
 			printf("remainder: %i\n", remainder);
 			sum += remainder;
 
-			digitCount /= 10;
+			z /= 10;
 		}
 
-		printf("addingBig: %i\n", sum); // WRONG, only 2nd digit
+		printf("addingBig: %i\n", sum);
 		return sum;
 }
 
