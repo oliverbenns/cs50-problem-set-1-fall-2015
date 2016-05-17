@@ -11,7 +11,7 @@ int main(void) {
 	int cardNumberLength = countDigits(cardNumber);
 
 	if (cardNumberLength < 13 || cardNumberLength > 16) {
-		return printf("INVALID count: %i \n", cardNumberLength);
+		return printf("INVALID length: %i \n", cardNumberLength);
 	}
 
 	int evenTotal = 0;
@@ -41,6 +41,10 @@ int main(void) {
 
 	printf("eventotal: %i \n", evenTotal); //
 	printf("oddTotal: %i \n", oddTotal); //
+
+	if ((oddTotal + evenTotal) % 10 != 0) {
+		return printf("INVALID card number\n");
+	}
 }
 
 
